@@ -7,7 +7,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.2'
+        classpath 'com.android.tools.build:gradle:3.1.4'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -24,4 +24,20 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+ext{
+    appCompatVersion = '1.0.0-rc02'
+    cardViewVersion = '1.0.0'
+    constraintLayoutVersion = '2.0.0-alpha2'
+    daggerVersion = '2.17'
+    moshiVersion = '1.6.0'
+    androidXArchiVersion = '2.0.0-rc01'
+    rxAndroidVersion = '2.1.0'
+    rxJavaVersion = '2.2.2'
+    rxKotlinVersion = '2.3.0'
+    jUnitVersion = '4.12'
+    testRunnerVersion = '1.1.0-alpha4'
+    espressoVersion = '3.1.0-alpha4'
+    mockitoVersion = '2.22.0'
 }
