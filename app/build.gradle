@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -36,11 +38,10 @@ dependencies {
 
     implementation "com.google.dagger:dagger:$rootProject.ext.daggerVersion"
     kapt "com.google.dagger:dagger-compiler:$rootProject.ext.daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$rootProject.ext.daggerVersion"
     implementation "com.google.dagger:dagger-android:$rootProject.ext.daggerVersion"
-    annotationProcessor  "com.google.dagger:dagger-android-processor:$rootProject.ext.daggerVersion"
 
-    kapt "com.squareup.moshi:moshi-kotlin-codegen:$rootProject.ext.moshiVersion"
-    implementation "com.squareup.moshi:moshi:$rootProject.ext.moshiVersion"
+    implementation "com.google.code.gson:gson:$rootProject.ext.gsonVersion"
 
     implementation "androidx.room:room-runtime:$rootProject.ext.androidXArchiVersion"
     kapt "androidx.room:room-compiler:$rootProject.ext.androidXArchiVersion"

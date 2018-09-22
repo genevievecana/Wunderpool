@@ -31,7 +31,7 @@ ext{
     cardViewVersion = '1.0.0'
     constraintLayoutVersion = '2.0.0-alpha2'
     daggerVersion = '2.17'
-    moshiVersion = '1.6.0'
+    gsonVersion = '2.8.5'
     androidXArchiVersion = '2.0.0-rc01'
     rxAndroidVersion = '2.1.0'
     rxJavaVersion = '2.2.2'
