@@ -16,6 +16,7 @@ class BaseRecyclerMultiAdapter<E: ViewHolderType>(
         var itemClickPublisher: PublishSubject<E>?
 ) : PagedListAdapter<E, BaseRecyclerMultiAdapter.BaseViewHolder<E>>(DiffCallBack<E>()) {
 
+    @Suppress("UNCHECKED_CAST")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<E> {
         return ViewHolderFactory.createViewType(parent, viewType) as BaseViewHolder<E>
     }

@@ -1,6 +1,6 @@
 package gencana.com.android.wunderpool.presentation.base
 
-import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable
@@ -15,7 +15,9 @@ abstract class BaseViewModel<T>: ViewModel() {
 
     val loadingLiveData = MutableLiveData<Boolean>()
 
-    val responseLiveData = MutableLiveData<T>()
+    val responseLiveData: LiveData<T> by lazy {
+        loadLiveData() ?: MutableLiveData()
+    }
 
     val errorLiveData = MutableLiveData<String>()
 
@@ -26,5 +28,9 @@ abstract class BaseViewModel<T>: ViewModel() {
     override fun onCleared() {
         super.onCleared()
         compositeDisposable.clear()
+    }
+
+    open protected fun loadLiveData(): LiveData<T>?{
+        return null
     }
 }
