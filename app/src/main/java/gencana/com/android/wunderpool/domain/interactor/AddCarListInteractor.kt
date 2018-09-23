@@ -16,10 +16,13 @@ class AddCarListInteractor @Inject constructor(
         private val repository: CarRepository,
         @Named(SCHEDULER_IO) private val io: Scheduler,
         @Named(SCHEDULER_MAIN_THREAD) private val mainThread: Scheduler
-): UseCase<Unit, List<Car>>(io, mainThread) {
+): UseCase<Boolean, List<Car>>(io, mainThread) {
 
-    override fun getObservable(params: List<Car>?): Observable<Unit> {
-        return  Observable.fromCallable {   repository.insert(params!!) }
+    override fun getObservable(params: List<Car>?): Observable<Boolean> {
+        return  Observable.fromCallable {
+            repository.insert(params!!)
+        true
+        }
     }
 
 

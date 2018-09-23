@@ -7,6 +7,7 @@ import dagger.Provides
 import gencana.com.android.wunderpool.presentation.constant.key.SCHEDULER_IO
 import gencana.com.android.wunderpool.presentation.constant.key.SCHEDULER_MAIN_THREAD
 import gencana.com.android.wunderpool.presentation.di.viewmodel.ViewModelModule
+import gencana.com.android.wunderpool.presentation.utils.SharedPref
 import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -23,6 +24,12 @@ class AppModule {
     @Provides
     @Singleton
     fun provideContext(app : Application) : Context = app
+
+    @Provides
+    @Singleton
+    fun provideSharedPref(context: Context): SharedPref{
+        return SharedPref(context)
+    }
 
     @Provides
     @Named(SCHEDULER_MAIN_THREAD)

@@ -1,6 +1,7 @@
 package gencana.com.android.wunderpool.presentation.base
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable
@@ -13,7 +14,7 @@ abstract class BaseViewModel<T>: ViewModel() {
 
     private val compositeDisposable = CompositeDisposable()
 
-    val loadingLiveData = MutableLiveData<Boolean>()
+    val loadingMediatorLiveData = MediatorLiveData<Boolean>()
 
     val responseLiveData: LiveData<T> by lazy {
         loadLiveData() ?: MutableLiveData()

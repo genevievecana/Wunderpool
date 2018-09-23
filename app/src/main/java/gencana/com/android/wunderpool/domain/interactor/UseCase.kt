@@ -10,14 +10,14 @@ import io.reactivex.Scheduler
 abstract class UseCase<T, P>(private val io: Scheduler,
                           private val mainThread: Scheduler) {
 
-    val isRunningLiveData = MutableLiveData<Boolean>()
+    val loadingLiveData = MutableLiveData<Boolean>()
 
     abstract fun getObservable(params: P? = null): Observable<T>
 
-    fun execute(params: P) : Observable<T>{
+    fun execute(params: P? = null) : Observable<T>{
         return getObservable(params)
-                .doOnSubscribe { isRunningLiveData.postValue(true) }
-                .doAfterTerminate { isRunningLiveData.postValue(false) }
+                .doOnSubscribe { loadingLiveData.postValue(true) }
+                .doAfterTerminate { loadingLiveData.postValue(false) }
                 .subscribeOn(io)
                 .observeOn(mainThread)
 

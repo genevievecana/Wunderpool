@@ -41,7 +41,7 @@ abstract class BaseActivity<VM: BaseViewModel<T>, T>: AppCompatActivity() {
                     onError(it)
                 })
 
-        mainViewModel.loadingLiveData.observe(this,
+        mainViewModel.loadingMediatorLiveData.observe(this,
                 Observer {
                     showLoading(it)
                 })
