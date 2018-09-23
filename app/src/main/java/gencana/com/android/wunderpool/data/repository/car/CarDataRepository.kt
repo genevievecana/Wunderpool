@@ -2,8 +2,12 @@ package gencana.com.android.wunderpool.data.repository.car
 
 import androidx.paging.DataSource
 import gencana.com.android.wunderpool.data.db.entity.CarEntity
+import gencana.com.android.wunderpool.data.entity.mapper.toDataEntity
+import gencana.com.android.wunderpool.data.entity.mapper.toDbEntity
+import gencana.com.android.wunderpool.data.entity.mapper.toDomainEntity
 import gencana.com.android.wunderpool.data.repository.car.source.CarDataStore
 import gencana.com.android.wunderpool.data.repository.car.source.CarDataStoreFactory
+import gencana.com.android.wunderpool.domain.model.Car
 import gencana.com.android.wunderpool.domain.repository.CarRepository
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -19,12 +23,16 @@ class CarDataRepository @Inject constructor(
 
     private var carDataStore: CarDataStore = carDataStoreFactory.create()
 
-    override fun insert(items: List<CarEntity>) {
-        carDataStore.insert(items)
+    override fun insert(items: List<Car>) {
+        carDataStore.insert(items.map {
+            it.toDataEntity()
+        })
     }
 
-    override fun getCarList(): DataSource.Factory<Int, CarEntity> {
-        return carDataStore.getCarList()
+    override fun getCarList(): DataSource.Factory<Int, Car> {
+        return carDataStore.getCarList().map{
+            it.toDomainEntity()
+        }
     }
 
 

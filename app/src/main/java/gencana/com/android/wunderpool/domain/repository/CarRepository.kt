@@ -1,15 +1,15 @@
 package gencana.com.android.wunderpool.domain.repository
 
 import androidx.paging.DataSource
-import gencana.com.android.wunderpool.data.db.entity.CarEntity
+import gencana.com.android.wunderpool.domain.model.Car
 
 /**
  * Created by Gen Cana on 22/09/2018
  */
 interface CarRepository  {
 
-    fun insert(items: List<CarEntity>)
+    fun insert(items: List<Car>)
 
-    fun getCarList() : DataSource.Factory<Int, CarEntity>
+    fun getCarList() : DataSource.Factory<Int, Car>
 
 }

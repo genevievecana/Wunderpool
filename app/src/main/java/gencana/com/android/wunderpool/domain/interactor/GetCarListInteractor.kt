@@ -1,7 +1,7 @@
 package gencana.com.android.wunderpool.domain.interactor
 
 import androidx.paging.DataSource
-import gencana.com.android.wunderpool.data.db.entity.CarEntity
+import gencana.com.android.wunderpool.domain.model.Car
 import gencana.com.android.wunderpool.domain.repository.CarRepository
 import javax.inject.Inject
 
@@ -11,7 +11,7 @@ import javax.inject.Inject
 class GetCarListInteractor @Inject constructor(
         private val repository: CarRepository) {
 
-    fun getCarList(): DataSource.Factory<Int, CarEntity>{
+    fun getCarList(): DataSource.Factory<Int, Car>{
         return repository.getCarList()
     }
 }
