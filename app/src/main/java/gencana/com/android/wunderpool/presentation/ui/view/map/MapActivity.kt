@@ -43,7 +43,9 @@ class MapActivity : BaseActivity<MapViewModel, List<Car>>(), OnMapReadyCallback,
 
     private fun setUpMap() {
         mMap?.setOnMarkerClickListener{selectedMarker ->
-            markerList.map { it?.isVisible = selectedMarker.hashCode() == it?.hashCode() }
+            if (!selectedMarker.title.isNullOrEmpty()){
+                markerList.map { it?.isVisible = selectedMarker.hashCode() == it?.hashCode() }
+            }
             false
         }
         mMap?.setOnInfoWindowClickListener{
