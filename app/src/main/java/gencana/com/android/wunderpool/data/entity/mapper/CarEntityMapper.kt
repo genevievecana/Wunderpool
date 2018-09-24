@@ -10,7 +10,7 @@ import gencana.com.android.wunderpool.domain.model.Car
 
 fun CarEntity.toDataEntity() =
         CarDataEntity(
-            id!!,
+            id,
             address,
             coordinates,
             engineType,

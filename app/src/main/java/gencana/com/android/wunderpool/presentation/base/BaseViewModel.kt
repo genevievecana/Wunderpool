@@ -17,6 +17,7 @@ abstract class BaseViewModel<T>: ViewModel() {
     protected val loadingMediatorLiveData = MediatorLiveData<Boolean>()
 
     val responseLiveData: LiveData<T> by lazy {
+        loadingMediatorLiveData.postValue(true)
         loadLiveData() ?: MutableLiveData()
     }
 

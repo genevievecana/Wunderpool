@@ -7,6 +7,7 @@ import dagger.Module
 import dagger.multibindings.IntoMap
 import gencana.com.android.wunderpool.presentation.factory.ViewModelFactory
 import gencana.com.android.wunderpool.presentation.ui.view.main.MainViewModel
+import gencana.com.android.wunderpool.presentation.ui.view.map.MapViewModel
 
 /**
  * Created by Gen Cana on 22/09/2018
@@ -22,4 +23,9 @@ interface ViewModelModule {
     @IntoMap
     @ViewModelKey(MainViewModel::class)
     fun bindMainViewModel(mainViewModel: MainViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(MapViewModel::class)
+    fun bindMapViewModel(viewModel: MapViewModel): ViewModel
 }

@@ -10,6 +10,7 @@ import gencana.com.android.wunderpool.presentation.base.BaseActivity
 import gencana.com.android.wunderpool.presentation.extensions.toast
 import gencana.com.android.wunderpool.presentation.extensions.visibleInvisible
 import gencana.com.android.wunderpool.presentation.ui.adapter.recyclerview.BaseRecyclerMultiAdapter
+import gencana.com.android.wunderpool.presentation.ui.view.map.MapActivity
 import gencana.com.android.wunderpool.presentation.utils.SharedPref
 import gencana.com.android.wunderpool.presentation.utils.getCarListFromJson
 import kotlinx.android.synthetic.main.activity_main.*
@@ -29,7 +30,6 @@ class MainActivity : BaseActivity<MainViewModel, PagedList<Car>>() {
         recyclerViewAdapter = BaseRecyclerMultiAdapter(null)
         recycler_view.adapter = recyclerViewAdapter
         setup()
-
     }
 
     private fun setup() {
@@ -40,6 +40,9 @@ class MainActivity : BaseActivity<MainViewModel, PagedList<Car>>() {
             })
         }
 
+        fab.setOnClickListener {
+            startActivity(Intent(this, MapActivity::class.java))
+        }
 
     }
 

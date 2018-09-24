@@ -21,6 +21,12 @@ class MainViewModel @Inject constructor(
 
     var addCarListLiveData = MutableLiveData<Boolean>()
 
+    init {
+        loadingMediatorLiveData.addSource(this.loadLiveData()!!){
+            loadingMediatorLiveData.value = false
+        }
+    }
+
     fun addCarList(carList: List<Car>){
         loadingMediatorLiveData.addSource(addCarListInteractor.loadingLiveData){
             loadingMediatorLiveData.value = it

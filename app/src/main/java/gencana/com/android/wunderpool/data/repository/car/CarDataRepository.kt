@@ -1,5 +1,7 @@
 package gencana.com.android.wunderpool.data.repository.car
 
+import android.arch.lifecycle.LiveData
+import android.arch.lifecycle.Transformations
 import android.arch.paging.DataSource
 import gencana.com.android.wunderpool.data.entity.mapper.toDataEntity
 import gencana.com.android.wunderpool.data.entity.mapper.toDomainEntity
@@ -33,5 +35,10 @@ class CarDataRepository @Inject constructor(
         }
     }
 
+    override fun getAllCarList(): LiveData<List<Car>> {
+        return Transformations.map(carDataStore.getAllCarList()){list -> list.map {
+            it.toDomainEntity()
+        }}
+    }
 
 }

@@ -7,3 +7,7 @@ package gencana.com.android.wunderpool.presentation.constant.key
 const val DATABASE_NAME = "app.db"
 
 const val TABLE_PLACE_MARK = "CarEntity"
+
+const val COLUMN_COORDINATES = "coordinates"
+const val COLUMN_VIN= "vin"
+const val COLUMN_ADDRESS = "address"
