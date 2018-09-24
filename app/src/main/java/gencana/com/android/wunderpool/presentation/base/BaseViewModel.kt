@@ -14,13 +14,21 @@ abstract class BaseViewModel<T>: ViewModel() {
 
     private val compositeDisposable = CompositeDisposable()
 
-    val loadingMediatorLiveData = MediatorLiveData<Boolean>()
+    protected val loadingMediatorLiveData = MediatorLiveData<Boolean>()
 
     val responseLiveData: LiveData<T> by lazy {
         loadLiveData() ?: MutableLiveData()
     }
 
-    val errorLiveData = MutableLiveData<String>()
+    protected val errorLiveData = MutableLiveData<String>()
+
+    fun getLoadingMediatorLiveData(): LiveData<Boolean>{
+        return loadingMediatorLiveData
+    }
+
+    fun getErrorLiveData(): LiveData<String>{
+        return errorLiveData
+    }
 
     fun addDisposable(disposable: Disposable){
         compositeDisposable.add(disposable)

@@ -34,8 +34,8 @@ class MainActivity : BaseActivity<MainViewModel, PagedList<Car>>() {
 
     private fun setup() {
         if (sharedPref.carDataAdded != true){
-            mainViewModel.addCarList(getCarListFromJson(this))
-            mainViewModel.addCarListLiveData.observe(this, Observer {
+            viewModel.addCarList(getCarListFromJson(this))
+            viewModel.addCarListLiveData.observe(this, Observer {
                 sharedPref.carDataAdded = true
             })
         }

@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import dagger.android.AndroidInjection
 import javax.inject.Inject
-import gencana.com.android.wunderpool.R
 import java.lang.reflect.ParameterizedType
 
 /**
@@ -18,32 +17,32 @@ abstract class BaseActivity<VM: BaseViewModel<T>, T>: AppCompatActivity() {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    protected lateinit var mainViewModel: VM
+    protected lateinit var viewModel: VM
 
     protected abstract val layout: Int
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        mainViewModel = ViewModelProviders.of(this, viewModelFactory)
+        setContentView(layout)
+        viewModel = ViewModelProviders.of(this, viewModelFactory)
                 .get((this.javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[0] as Class<VM>)
         observeLiveData()
 
     }
 
     private fun observeLiveData() {
-        mainViewModel.responseLiveData.observe(this,
+        viewModel.responseLiveData.observe(this,
                 Observer {
                     onResponseSuccess(it!!)
                 })
 
-        mainViewModel.errorLiveData.observe(this,
+        viewModel.getErrorLiveData().observe(this,
                 Observer {
                     onError(it)
                 })
 
-        mainViewModel.loadingMediatorLiveData.observe(this,
+        viewModel.getLoadingMediatorLiveData().observe(this,
                 Observer {
                     showLoading(it==true)
                 })
