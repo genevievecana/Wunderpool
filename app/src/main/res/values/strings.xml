@@ -4,4 +4,5 @@
     <string name="interior">Int</string>
     <string name="exterior">Ext</string>
     <string name="error_default">Ooops! Something went wrong. Please try again.</string>
+    <string name="error_location">Unable to fetch current location.</string>
 </resources>

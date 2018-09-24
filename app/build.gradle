@@ -81,6 +81,7 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxkotlin:$rootProject.ext.rxKotlinVersion"
 
     implementation "com.google.android.gms:play-services-maps:15.0.1"
+    implementation "com.google.android.gms:play-services-location:15.0.1"
     implementation "com.google.maps.android:android-maps-utils:$rootProject.ext.mapUtilsVersion"
 
 }

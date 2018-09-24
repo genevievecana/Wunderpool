@@ -8,15 +8,15 @@ import gencana.com.android.wunderpool.presentation.interfaces.ViewHolderType
  * Created by Gen Cana on 23/09/2018
  */
 data class Car(
-        var id: Int?,
-        var address: String?,
+        var id: Int? = null,
+        var address: String? = null,
         var coordinates: Array<Double>?,
-        var engineType: String?,
-        var exterior: String?,
-        var fuel: Int?,
-        var interior: String?,
-        var name: String?,
-        var vin: String?,
+        var engineType: String? = null,
+        var exterior: String? = null,
+        var fuel: Int? = null,
+        var interior: String? = null,
+        var name: String? = null,
+        var vin: String? = null,
         override var viewTypeEnum: ViewHolderTypeEnum = ViewHolderTypeEnum.ITEM_CAR
 ): ViewHolderType {
 

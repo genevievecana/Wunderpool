@@ -30,11 +30,17 @@ fun generateMarkers(map: GoogleMap?, carList: List<Car>): List<Marker?>{
     val iconSize = icons.size
     for (i in 0..carList.lastIndex){
         val car = carList[i]
-        val markerOptions = MarkerOptions()
-                .position(LatLng(car.coordinates!![1], car.coordinates!![0]))
-                .title(car.vin)
-                .snippet(car.address)
-                .icon(BitmapDescriptorFactory.fromResource(icons[i%iconSize]))
+        var markerOptions: MarkerOptions
+
+        if (car.vin == null){
+            markerOptions = MarkerOptions().position(LatLng(car.coordinates!![1], car.coordinates!![0]))
+        }else{
+            markerOptions = MarkerOptions()
+                    .position(LatLng(car.coordinates!![1], car.coordinates!![0]))
+                    .title(car.vin)
+                    .snippet(car.address)
+                    .icon(BitmapDescriptorFactory.fromResource(icons[i%iconSize]))
+        }
         markerList.add(map?.addMarker(markerOptions))
     }
     return markerList
