@@ -1,8 +1,10 @@
 package gencana.com.android.wunderpool.presentation.base
 
+import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProvider
+import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.*
+import android.support.v7.app.AppCompatActivity
 import dagger.android.AndroidInjection
 import javax.inject.Inject
 import gencana.com.android.wunderpool.R
@@ -33,7 +35,7 @@ abstract class BaseActivity<VM: BaseViewModel<T>, T>: AppCompatActivity() {
     private fun observeLiveData() {
         mainViewModel.responseLiveData.observe(this,
                 Observer {
-                    onResponseSuccess(it)
+                    onResponseSuccess(it!!)
                 })
 
         mainViewModel.errorLiveData.observe(this,
@@ -43,7 +45,7 @@ abstract class BaseActivity<VM: BaseViewModel<T>, T>: AppCompatActivity() {
 
         mainViewModel.loadingMediatorLiveData.observe(this,
                 Observer {
-                    showLoading(it)
+                    showLoading(it==true)
                 })
     }
 
@@ -51,7 +53,7 @@ abstract class BaseActivity<VM: BaseViewModel<T>, T>: AppCompatActivity() {
 
     abstract fun onResponseSuccess(data: T)
 
-    abstract fun onError(errorMsg: String)
+    abstract fun onError(errorMsg: String?)
 
 
 }

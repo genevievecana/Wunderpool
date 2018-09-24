@@ -1,9 +1,8 @@
 package gencana.com.android.wunderpool.data.db
 
-import androidx.room.RoomDatabase
-import androidx.sqlite.db.SupportSQLiteDatabase
-import gencana.com.android.wunderpool.data.db.entity.CarEntity
-import gencana.com.android.wunderpool.domain.interactor.AddCarListInteractor
+
+import android.arch.persistence.db.SupportSQLiteDatabase
+import android.arch.persistence.room.RoomDatabase
 import javax.inject.Inject
 
 /**

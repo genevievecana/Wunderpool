@@ -1,9 +1,9 @@
 package gencana.com.android.wunderpool.presentation.ui.adapter.recyclerview
 
+import android.arch.paging.PagedListAdapter
+import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
-import androidx.paging.PagedListAdapter
-import androidx.recyclerview.widget.RecyclerView
 import gencana.com.android.wunderpool.presentation.interfaces.ViewHolderType
 import gencana.com.android.wunderpool.presentation.factory.ViewHolderFactory
 import io.reactivex.Observable

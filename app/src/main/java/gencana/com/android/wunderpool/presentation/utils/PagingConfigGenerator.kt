@@ -1,6 +1,7 @@
 package gencana.com.android.wunderpool.presentation.utils
 
-import androidx.paging.PagedList
+import android.arch.paging.PagedList
+
 
 /**
  * Created by Gen Cana on 23/09/2018

@@ -1,9 +1,7 @@
 package gencana.com.android.wunderpool.data.repository.car
 
-import androidx.paging.DataSource
-import gencana.com.android.wunderpool.data.db.entity.CarEntity
+import android.arch.paging.DataSource
 import gencana.com.android.wunderpool.data.entity.mapper.toDataEntity
-import gencana.com.android.wunderpool.data.entity.mapper.toDbEntity
 import gencana.com.android.wunderpool.data.entity.mapper.toDomainEntity
 import gencana.com.android.wunderpool.data.repository.car.source.CarDataStore
 import gencana.com.android.wunderpool.data.repository.car.source.CarDataStoreFactory

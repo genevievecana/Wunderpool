@@ -1,6 +1,6 @@
 package gencana.com.android.wunderpool.presentation.ui.adapter.recyclerview
 
-import androidx.recyclerview.widget.DiffUtil
+import android.support.v7.util.DiffUtil
 import gencana.com.android.wunderpool.presentation.interfaces.PagingData
 
 

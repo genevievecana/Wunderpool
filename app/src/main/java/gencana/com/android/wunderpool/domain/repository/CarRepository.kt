@@ -1,6 +1,6 @@
 package gencana.com.android.wunderpool.domain.repository
 
-import androidx.paging.DataSource
+import android.arch.paging.DataSource
 import gencana.com.android.wunderpool.domain.model.Car
 
 /**

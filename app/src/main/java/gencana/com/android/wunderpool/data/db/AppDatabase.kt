@@ -1,8 +1,8 @@
 package gencana.com.android.wunderpool.data.db
 
-import androidx.room.Database
-import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
+import android.arch.persistence.room.Database
+import android.arch.persistence.room.RoomDatabase
+import android.arch.persistence.room.TypeConverters
 import gencana.com.android.wunderpool.data.db.dao.PlaceMarkDao
 import gencana.com.android.wunderpool.data.db.entity.CarEntity
 

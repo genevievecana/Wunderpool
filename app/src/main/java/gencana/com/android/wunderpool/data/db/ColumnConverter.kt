@@ -1,6 +1,6 @@
 package gencana.com.android.wunderpool.data.db
 
-import androidx.room.TypeConverter
+import android.arch.persistence.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 

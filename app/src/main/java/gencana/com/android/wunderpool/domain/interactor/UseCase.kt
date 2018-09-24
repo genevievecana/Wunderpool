@@ -1,6 +1,6 @@
 package gencana.com.android.wunderpool.domain.interactor
 
-import androidx.lifecycle.MutableLiveData
+import android.arch.lifecycle.MutableLiveData
 import io.reactivex.Observable
 import io.reactivex.Scheduler
 

@@ -1,9 +1,9 @@
 package gencana.com.android.wunderpool.presentation.factory
 
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
 import gencana.com.android.wunderpool.presentation.constant.enums.ViewHolderTypeEnum
 import gencana.com.android.wunderpool.presentation.ui.adapter.recyclerview.viewholder.CarItemViewHolder
 

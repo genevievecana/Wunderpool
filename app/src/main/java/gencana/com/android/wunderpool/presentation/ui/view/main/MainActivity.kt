@@ -1,9 +1,10 @@
 package gencana.com.android.wunderpool.presentation.ui.view.main
 
+import android.arch.lifecycle.Observer
+import android.arch.paging.PagedList
+import android.content.Intent
 import android.os.Bundle
-import androidx.lifecycle.Observer
 import gencana.com.android.wunderpool.R
-import androidx.paging.PagedList
 import gencana.com.android.wunderpool.domain.model.Car
 import gencana.com.android.wunderpool.presentation.base.BaseActivity
 import gencana.com.android.wunderpool.presentation.extensions.toast
@@ -54,7 +55,7 @@ class MainActivity : BaseActivity<MainViewModel, PagedList<Car>>() {
         recyclerViewAdapter.submitList(data)
     }
 
-    override fun onError(errorMsg: String) {
-        toast(errorMsg)
+    override fun onError(errorMsg: String?) {
+        toast(errorMsg ?: getString(R.string.error_default))
     }
 }
