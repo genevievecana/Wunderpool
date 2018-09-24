@@ -16,10 +16,27 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-    buildTypes {
+
+    signingConfigs {
         release {
+            keyAlias KEYSTORE_ALIAS
+            keyPassword KEYSTORE_PASSWORD
+            storeFile file(KEYSTORE_PATH)
+            storePassword KEYSTORE_STORE_PASSWORD
+        }
+    }
+
+    buildTypes {
+        debug{
+            debuggable = true
+            applicationIdSuffix '.debug'
+            signingConfig signingConfigs.release
+        }
+        release {
+            debuggable = false
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 }
